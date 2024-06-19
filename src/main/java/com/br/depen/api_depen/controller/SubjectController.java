@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.br.depen.api_depen.entities.Subject;
-import com.br.depen.api_depen.service.SubjectService;
+import com.br.depen.api_depen.services.SubjectService;
 
 @RestController
 @RequestMapping("api/v1/users")

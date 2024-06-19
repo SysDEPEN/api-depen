@@ -1,14 +1,16 @@
 package com.br.depen.api_depen.entities;
 
-
+import com.br.depen.api_depen.listeners.AuditListener;
 import jakarta.persistence.*;
 import lombok.Data;
+
 import java.util.Date;
 
 @Data
 @Entity
 @Table(name = "tb_user")
-public class User {
+@EntityListeners(AuditListener.class)
+public class User implements Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +22,7 @@ public class User {
 
     private String sexo;
 
+    @Temporal(TemporalType.DATE)
     private Date dataNasc;
 
     private String email;
@@ -28,9 +31,21 @@ public class User {
 
     private int role;
 
-    @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at", updatable = false)
     private Date createdAt;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at")
     private Date updatedAt;
+
+    @Override
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @Override
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }

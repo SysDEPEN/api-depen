@@ -1,8 +1,8 @@
 package com.br.depen.api_depen.controller;
 
 import com.br.depen.api_depen.entities.Login;
-import com.br.depen.api_depen.service.AuthService;
-import com.br.depen.api_depen.service.LoginService;
+import com.br.depen.api_depen.services.AuthService;
+import com.br.depen.api_depen.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +28,7 @@ public class LoginController {
         return ResponseEntity.ok(token);
     }
 
-    @GetMapping
+    @GetMapping("logins")
     public ResponseEntity<List<Login>> findAll() {
         return ResponseEntity.status(HttpStatus.OK).body(loginService.findAll());
     }
