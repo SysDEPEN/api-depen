@@ -2,9 +2,11 @@ package com.br.depen.api_depen.services;
 
 import java.util.List;
 import java.util.Optional;
+
+import com.br.depen.api_depen.entities.SubjectInmostVisit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.br.depen.api_depen.entities.SubInMostVisit;
+
 import com.br.depen.api_depen.repository.SubInMostVisitRepository;
 
 @Service
@@ -14,22 +16,22 @@ public class SubInMostVisitServiceImpl implements SubInMostVisitService{
     private SubInMostVisitRepository subInMostVisitRepository;
 
     @Override
-    public SubInMostVisit save(SubInMostVisit subInMostVisit) {
+    public SubjectInmostVisit save(SubjectInmostVisit subInMostVisit) {
         return subInMostVisitRepository.save(subInMostVisit);
     }
 
     @Override
-    public List<SubInMostVisit> findAll() {
+    public List<SubjectInmostVisit> findAll() {
         return subInMostVisitRepository.findAll();
     }
 
     @Override
-    public Optional<SubInMostVisit> findById(Long id) {
+    public Optional<SubjectInmostVisit> findById(Long id) {
         return subInMostVisitRepository.findById(id);
     }
 
     @Override
-    public SubInMostVisit update(SubInMostVisit subInMostVisit) {
+    public SubjectInmostVisit update(SubjectInmostVisit subInMostVisit) {
         return subInMostVisitRepository.save(subInMostVisit);
     }
 

@@ -1,51 +1,42 @@
 package com.br.depen.api_depen.entities;
 
-import com.br.depen.api_depen.listeners.AuditListener;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
 @Entity
 @Table(name = "tb_user")
-@EntityListeners(AuditListener.class)
-public class User implements Auditable {
-
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 256)
     private String nome;
 
+    @Column(length = 14)
     private String documento;
 
+    @Column(length = 254)
     private String sexo;
 
-    @Temporal(TemporalType.DATE)
-    private Date dataNasc;
+    private Date data_nasc;
 
+    @Column(length = 256)
     private String email;
 
+    @Column(nullable = false, length = 256)
     private String senha;
 
-    private int role;
+    @Column(nullable = false)
+    private Short role;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at", updatable = false)
-    private Date createdAt;
+    @Column(nullable = false)
+    private LocalDateTime created_at;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at")
-    private Date updatedAt;
-
-    @Override
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    @Override
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+    @Column(nullable = false)
+    private LocalDateTime updated_at;
 }

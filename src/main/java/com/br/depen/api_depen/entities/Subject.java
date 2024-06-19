@@ -1,9 +1,8 @@
 package com.br.depen.api_depen.entities;
 
-import java.util.Date;
-import jakarta.persistence.*;
 import lombok.Data;
-
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "tb_subject")
@@ -12,11 +11,20 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length = 256)
     private String subject;
 
-    @Column(name = "created_at")
-    private Date createdAt;
+    @ManyToOne
+    @JoinColumn(name = "id_user", nullable = false)
+    private User id_user;
 
-    @Column(name = "updated_at")
-    private Date updatedAt;
+    @ManyToOne
+    @JoinColumn(name = "id_inmost_visit", nullable = false)
+    private SubjectInmostVisit id_inmost_visit;
+
+    @Column(nullable = false)
+    private LocalDateTime created_at;
+
+    @Column(nullable = false)
+    private LocalDateTime updated_at;
 }

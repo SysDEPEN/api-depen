@@ -6,14 +6,11 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "tb_documents")
-public class Documents {
+@Table(name = "protocolos")
+public class Protocols {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(length = 256)
-    private String documentos;
 
     @Column(nullable = false)
     private LocalDateTime created_at;
@@ -24,4 +21,8 @@ public class Documents {
     @ManyToOne
     @JoinColumn(name = "id_user", nullable = false)
     private User id_user;
+
+    @ManyToOne
+    @JoinColumn(name = "id_user_editor")
+    private Admin id_user_editor;
 }

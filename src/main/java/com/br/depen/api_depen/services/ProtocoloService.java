@@ -2,17 +2,17 @@ package com.br.depen.api_depen.services;
 
 import java.util.List;
 import java.util.Optional;
-import com.br.depen.api_depen.entities.Protocol;
+import com.br.depen.api_depen.entities.Protocols;
 
 public interface ProtocoloService {
 
-    Protocol save(Protocol protocol);
+    Protocols save(Protocols protocol);
 
-    List<Protocol> findAll();
+    List<Protocols> findAll();
 
-    Optional<Protocol> findById(Long id);
+    Optional<Protocols> findById(Long id);
 
-    Protocol update (Protocol protocol);
+    Protocols update (Protocols protocols);
 
     void deleteById(Long id);
 }

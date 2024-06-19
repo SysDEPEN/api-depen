@@ -43,7 +43,7 @@ public class LoginController {
         return ResponseEntity.status(HttpStatus.CREATED).body(loginService.save(login));
     }
 
-    @PutMapping
+    @PutMapping("/update/{id}")
     public ResponseEntity<Login> update(@RequestBody Login login) {
         return ResponseEntity.status(HttpStatus.OK).body(loginService.update(login));
     }

@@ -1,11 +1,13 @@
 package com.br.depen.api_depen.entities;
 
-import jakarta.persistence.*;
 import lombok.Data;
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+
+import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
 
 @Data
 @Entity
@@ -15,27 +17,31 @@ public class Login implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 256)
     private String nome;
 
+    @Column(length = 14)
     private String documento;
 
+    @Column(nullable = false, length = 256)
     private String senha;
 
-    private int role;
+    @Column(nullable = false)
+    private Short role;
 
-    @Column(name = "created_at")
-    private Date createdAt;
+    @Column(nullable = false)
+    private LocalDateTime created_at;
 
-    @Column(name = "updated_at")
-    private Date updatedAt;
+    @Column(nullable = false)
+    private LocalDateTime updated_at;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_user")
-    private User user;
+    private User id_user;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_admin")
-    private Admin admin;
+    private Admin id_admin;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -13,33 +13,33 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.br.depen.api_depen.entities.Protocol;
+import com.br.depen.api_depen.entities.Protocols;
 import com.br.depen.api_depen.services.ProtocoloService;
 
 @RestController
-@RequestMapping("api/v1/logins")
+@RequestMapping("api/v1/protocols")
 public class ProtocolController {
     @Autowired
     private ProtocoloService protocoloService;
 
     @GetMapping
-    public ResponseEntity<List<Protocol>> findAll() {
+    public ResponseEntity<List<Protocols>> findAll() {
         return ResponseEntity.status(HttpStatus.OK).body(protocoloService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Protocol>> findById(@PathVariable Long id) {
+    public ResponseEntity<Optional<Protocols>> findById(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(protocoloService.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Protocol> create(@RequestBody Protocol protocol) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(protocoloService.save(protocol));
+    public ResponseEntity<Protocols> create(@RequestBody Protocols protocols) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(protocoloService.save(protocols));
     }
 
-    @PutMapping
-    public ResponseEntity<Protocol> update(@RequestBody Protocol protocol) {
-        return ResponseEntity.status(HttpStatus.OK).body(protocoloService.update(protocol));
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Protocols> update(@RequestBody Protocols protocols) {
+        return ResponseEntity.status(HttpStatus.OK).body(protocoloService.update(protocols));
     }
 
     @DeleteMapping("/{id}")

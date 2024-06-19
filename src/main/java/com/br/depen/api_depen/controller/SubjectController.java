@@ -17,7 +17,7 @@ import com.br.depen.api_depen.entities.Subject;
 import com.br.depen.api_depen.services.SubjectService;
 
 @RestController
-@RequestMapping("api/v1/users")
+@RequestMapping("api/v1/users/subject")
 public class SubjectController {
 
     @Autowired

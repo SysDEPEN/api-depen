@@ -1,18 +1,18 @@
 package com.br.depen.api_depen.services;
 
-import com.br.depen.api_depen.entities.SubInMostVisit;
+import com.br.depen.api_depen.entities.SubjectInmostVisit;
 import java.util.List;
 import java.util.Optional;
 
 public interface SubInMostVisitService {
 
-	SubInMostVisit save(SubInMostVisit subInMostVisit);
+    SubjectInmostVisit save(SubjectInmostVisit subjectInmostVisit);
 
-    List<SubInMostVisit> findAll();
+    List<SubjectInmostVisit> findAll();
 
-    Optional<SubInMostVisit> findById(Long id);
+    Optional<SubjectInmostVisit> findById(Long id);
 
-    SubInMostVisit update (SubInMostVisit user);
+    SubjectInmostVisit update (SubjectInmostVisit user);
 
     void deleteById(Long id);
 }
