@@ -1,7 +1,7 @@
 package com.br.depen.api_depen.controller;
 
 import com.br.depen.api_depen.entities.User;
-import com.br.depen.api_depen.service.UserService;
+import com.br.depen.api_depen.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
 package com.br.depen.api_depen.controller;
 
 import com.br.depen.api_depen.entities.SubInMostVisit;
-import com.br.depen.api_depen.service.SubInMostVisitService;
+import com.br.depen.api_depen.services.SubInMostVisitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

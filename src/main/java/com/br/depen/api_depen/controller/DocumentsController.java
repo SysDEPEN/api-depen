@@ -1,6 +1,7 @@
 package com.br.depen.api_depen.controller;
 
 import com.br.depen.api_depen.entities.Documents;
+import com.br.depen.api_depen.services.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,31 +15,31 @@ import java.util.Optional;
 public class DocumentsController {
 
     @Autowired
-    private DocumentsService documentsService;
+    private DocumentService documentService;
 
     @GetMapping
     public ResponseEntity<List<Documents>> findAll() {
-        return ResponseEntity.status(HttpStatus.OK).body(documentsService.findAll());
+        return ResponseEntity.status(HttpStatus.OK).body(documentService.findAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Documents>> findById(@PathVariable Long id) {
-        return ResponseEntity.status(HttpStatus.OK).body(documentsService.findById(id));
+        return ResponseEntity.status(HttpStatus.OK).body(documentService.findById(id));
     }
 
     @PostMapping
     public ResponseEntity<Documents> create(@RequestBody Documents documents) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(documentsService.save(documents));
+        return ResponseEntity.status(HttpStatus.CREATED).body(documentService.save(documents));
     }
 
     @PutMapping
     public ResponseEntity<Documents> update(@RequestBody Documents documents) {
-        return ResponseEntity.status(HttpStatus.OK).body(documentsService.update(documents));
+        return ResponseEntity.status(HttpStatus.OK).body(documentService.update(documents));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
-        documentsService.deleteById(id);
+        documentService.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

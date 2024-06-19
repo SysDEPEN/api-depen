@@ -1,7 +1,7 @@
 package com.br.depen.api_depen.controller;
 
 import com.br.depen.api_depen.entities.Admin;
-import com.br.depen.api_depen.service.AdminService;
+import com.br.depen.api_depen.services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

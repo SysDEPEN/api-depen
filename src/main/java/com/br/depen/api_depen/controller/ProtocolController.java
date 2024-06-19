@@ -14,36 +14,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.br.depen.api_depen.entities.Protocol;
-import com.br.depen.api_depen.service.ProtocoloService;
+import com.br.depen.api_depen.services.ProtocoloService;
 
 @RestController
 @RequestMapping("api/v1/logins")
 public class ProtocolController {
     @Autowired
-    private ProtocoloService protocoService;
+    private ProtocoloService protocoloService;
 
     @GetMapping
     public ResponseEntity<List<Protocol>> findAll() {
-        return ResponseEntity.status(HttpStatus.OK).body(protocoService.findAll());
+        return ResponseEntity.status(HttpStatus.OK).body(protocoloService.findAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Protocol>> findById(@PathVariable Long id) {
-        return ResponseEntity.status(HttpStatus.OK).body(protocoService.findById(id));
+        return ResponseEntity.status(HttpStatus.OK).body(protocoloService.findById(id));
     }
 
     @PostMapping
     public ResponseEntity<Protocol> create(@RequestBody Protocol protocol) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(protocoService.save(protocol));
+        return ResponseEntity.status(HttpStatus.CREATED).body(protocoloService.save(protocol));
     }
 
     @PutMapping
     public ResponseEntity<Protocol> update(@RequestBody Protocol protocol) {
-        return ResponseEntity.status(HttpStatus.OK).body(protocoService.update(protocol));
+        return ResponseEntity.status(HttpStatus.OK).body(protocoloService.update(protocol));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
-        protocoService.deleteById(id);
+        protocoloService.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+}
