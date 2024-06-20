@@ -35,14 +35,6 @@ public class Login implements UserDetails {
     @Column(nullable = false)
     private LocalDateTime updated_at;
 
-    @ManyToOne
-    @JoinColumn(name = "id_user")
-    private User id_user;
-
-    @ManyToOne
-    @JoinColumn(name = "id_admin")
-    private Admin id_admin;
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
