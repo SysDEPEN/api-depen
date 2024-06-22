@@ -50,6 +50,22 @@ public class Login implements UserDetails {
         return nome;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Short getRole() {
+        return role;
+    }
+
+    public void setRole(Short role) {
+        this.role = role;
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -69,5 +85,6 @@ public class Login implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 
 }
