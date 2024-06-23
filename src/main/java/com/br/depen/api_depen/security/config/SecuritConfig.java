@@ -47,14 +47,18 @@ public class SecuritConfig {
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http
-                .cors(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests().requestMatchers("api/v1/logins/login").permitAll()
-                .anyRequest().authenticated().and()
+        http
+                .cors() // Habilita CORS com a configuração definida
+                .and()
+                .authorizeHttpRequests().requestMatchers("api/v1/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().authenticationProvider(authenticationProvider())
-                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
-                .build();
+                .and()
+                .authenticationProvider(authenticationProvider())
+                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
     }
 }
