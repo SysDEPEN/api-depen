@@ -24,6 +24,7 @@ public class AuthService {
     public String login(LoginDto usuario) {
         authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(usuario.username(), usuario.password()));
+
         var user = userRepository.findByNome(usuario.username());
         return getToken(user);
     }

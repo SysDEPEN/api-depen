@@ -24,6 +24,7 @@ public class LoginController {
 
     @PostMapping("/login")
     public ResponseEntity<String> getJwtByLogin(@RequestBody LoginDto login){
+        System.out.println(login);
         var token = authService.login(login);
         return ResponseEntity.ok(token);
     }
@@ -33,22 +34,12 @@ public class LoginController {
         return ResponseEntity.status(HttpStatus.OK).body(loginService.findAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<Optional<Login>> findById(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(loginService.findById(id));
     }
 
-    @PostMapping
-    public ResponseEntity<Login> create(@RequestBody Login login) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(loginService.save(login));
-    }
-
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Login> update(@RequestBody Login login) {
-        return ResponseEntity.status(HttpStatus.OK).body(loginService.update(login));
-    }
-
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         loginService.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).build();
