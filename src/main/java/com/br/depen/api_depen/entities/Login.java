@@ -50,9 +50,7 @@ public class Login implements UserDetails {
         return nome;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() {return id;}
 
     public void setId(Long id) {
         this.id = id;

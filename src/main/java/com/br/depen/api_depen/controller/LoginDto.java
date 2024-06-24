@@ -1,14 +1,11 @@
 package com.br.depen.api_depen.controller;
 
-public record LoginDto(
-        String username,
-        String password
-) {
-    public String username() {
-        return username;
-    }
+public class LoginDto {
+    public String username;
+    public String password;
 
-    public String password() {
-        return password;
+    public LoginDto(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 }

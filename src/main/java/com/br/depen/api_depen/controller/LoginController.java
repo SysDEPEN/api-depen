@@ -24,7 +24,6 @@ public class LoginController {
 
     @PostMapping("/login")
     public ResponseEntity<String> getJwtByLogin(@RequestBody LoginDto login){
-        System.out.println(login);
         var token = authService.login(login);
         return ResponseEntity.ok(token);
     }
