@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.br.depen.api_depen.entities.Login;
+import com.br.depen.api_depen.entities.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -48,11 +48,11 @@ public class JwtUtils {
         return expiration.before(new Date());
     }
 
-    public String generate(Login user, String type) {
+    public String generate(User user, String type) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("id", user.getId());
         claims.put("role", user.getRole());
-        return doGenerateToken(claims, user.getUsername(), type);
+        return doGenerateToken(claims, user.getNome(), type);
     }
 
     private String doGenerateToken(Map<String, Object> claims, String username, String type) {

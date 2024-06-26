@@ -29,7 +29,9 @@ public class DocumentsController {
 
     @PostMapping
     public ResponseEntity<Documents> create(@RequestBody Documents documents) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(documentService.save(documents));
+
+        Documents save = documentService.save(documents);
+        return ResponseEntity.status(HttpStatus.CREATED).body(save);
     }
 
     @PutMapping

@@ -8,6 +8,12 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "tb_documents")
 public class Documents {
+
+    public Documents() {
+        this.created_at = LocalDateTime.now();
+        this.updated_at = LocalDateTime.now();
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,7 +27,6 @@ public class Documents {
     @Column(nullable = false)
     private LocalDateTime updated_at;
 
-    @ManyToOne
-    @JoinColumn(name = "id_user", nullable = false)
-    private User id_user;
+    @Column(nullable = false)
+    private int id_user;
 }

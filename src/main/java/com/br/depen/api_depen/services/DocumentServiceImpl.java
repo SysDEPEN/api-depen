@@ -1,6 +1,9 @@
 package com.br.depen.api_depen.services;
 
 import com.br.depen.api_depen.entities.Documents;
+import com.br.depen.api_depen.repository.DocumentRepository;
+import com.br.depen.api_depen.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,9 +12,18 @@ import java.util.Optional;
 @Service
 public class DocumentServiceImpl implements DocumentService{
 
+    @Autowired
+    private DocumentRepository documentRepository;
+
     @Override
     public Documents save(Documents documents) {
-        return null;
+
+        try{
+            return documentRepository.save(documents);
+        }
+        catch (Exception e){
+            throw new RuntimeException("document not saved");
+        }
     }
 
     @Override

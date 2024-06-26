@@ -2,7 +2,9 @@ package com.br.depen.api_depen.services;
 
 import com.br.depen.api_depen.controller.LoginDto;
 import com.br.depen.api_depen.entities.Login;
+import com.br.depen.api_depen.entities.User;
 import com.br.depen.api_depen.repository.LoginRepository;
+import com.br.depen.api_depen.repository.UserRepository;
 import com.br.depen.api_depen.security.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,21 +18,21 @@ public class AuthService {
     private JwtUtils jwt;
 
     @Autowired
-    private LoginRepository userRepository;
-
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    private UserRepository userRepository;
 
     public String login(LoginDto usuario) {
-        authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(usuario.username, usuario.password));
-
-        var user = userRepository.findByNome(usuario.username);
+        User user = userRepository.findByDocumento(usuario.getDocument());
+        if (user == null) {
+            throw new RuntimeException("Usuário não encontrado");
+        }
+        if (!user.getSenha().equals(usuario.getPassword())) {
+            throw new RuntimeException("Usuario ou Senha inválida");
+        }
+        //return user.getId().toString();
         return getToken(user);
     }
 
-    public String getToken(Login user) {
-        String accessToken = jwt.generate(user, "ACCESS");
-        return accessToken;
+    public String getToken(User user) {
+        return jwt.generate(user, "ACCESS");
     }
 }

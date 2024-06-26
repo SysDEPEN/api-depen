@@ -2,6 +2,7 @@ package com.br.depen.api_depen.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -17,6 +18,7 @@ public class User {
     @Column(nullable = false, length = 256)
     private String nome;
 
+    @Getter
     @Column(length = 14)
     private String documento;
 
@@ -39,6 +41,4 @@ public class User {
 
     @Column(nullable = false)
     private LocalDateTime updated_at;
-
-
 }
