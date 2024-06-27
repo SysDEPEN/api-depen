@@ -29,7 +29,8 @@ public class AuthService {
             throw new RuntimeException("Usuario ou Senha inválida");
         }
         //return user.getId().toString();
-        return getToken(user);
+        var token = getToken(user);
+        return token;
     }
 
     public String getToken(User user) {
