@@ -13,7 +13,7 @@ public interface RequerimentoInfoService {
 
     Optional<RequerimentoInfo> findById(Long id);
 
-    RequerimentoInfo update(RequerimentoInfo protocols);
+    RequerimentoInfo update(Long id, RequerimentoInfo protocols);
 
     void deleteById(Long id);
 }

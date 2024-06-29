@@ -44,10 +44,10 @@ public class RequerimentoInfoController {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<RequerimentoInfo> update(@RequestBody RequerimentoInfo requerimentoInfo) {
+    @PutMapping("/{id}")
+    public ResponseEntity<RequerimentoInfo> update(@PathVariable Long id, @RequestBody RequerimentoInfo requerimentoInfo) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(requerimentoInfoService.update(requerimentoInfo));
+            return ResponseEntity.status(HttpStatus.OK).body(requerimentoInfoService.update(id, requerimentoInfo));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
