@@ -22,7 +22,12 @@ public class Protocols {
     @JoinColumn(name = "id_user", nullable = false)
     private User id_user;
 
-    @ManyToOne
-    @JoinColumn(name = "id_user_editor")
-    private Admin id_user_editor;
+    @Column(nullable = false)
+    private int id_requerimento_info;
+
+    @Column(nullable = false)
+    private int id_documento;
+
+    @Column (nullable = false)
+    private int status;
 }

@@ -12,7 +12,7 @@ import com.br.depen.api_depen.repository.SubInMostVisitRepository;
 @Service
 public class SubInMostVisitServiceImpl implements SubInMostVisitService{
 
-    @Autowired
+        @Autowired
     private SubInMostVisitRepository subInMostVisitRepository;
 
     @Override

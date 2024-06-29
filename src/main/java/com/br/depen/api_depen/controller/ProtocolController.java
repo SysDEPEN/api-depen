@@ -34,7 +34,11 @@ public class ProtocolController {
 
     @PostMapping
     public ResponseEntity<Protocols> create(@RequestBody Protocols protocols) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(protocoloService.save(protocols));
+        try {
+            return ResponseEntity.status(HttpStatus.CREATED).body(protocoloService.save(protocols));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
     }
 
     @PutMapping("/update/{id}")
