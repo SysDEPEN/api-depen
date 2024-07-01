@@ -17,16 +17,15 @@ public class FileUploadController {
     @PostMapping
     public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) {
         if (file.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please select a file to upload.");
+            throw new RuntimeException("File is empty");
         }
-
         try {
             // Process the file, for example, save it to a directory
             byte[] bytes = file.getBytes();
             Path path = Paths.get("uploads/" + file.getOriginalFilename());
             Files.write(path, bytes);
 
-            return ResponseEntity.ok("File uploaded successfully: " + file.getOriginalFilename());
+            return ResponseEntity.ok(file.getOriginalFilename());
         } catch (IOException e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload the file.");
