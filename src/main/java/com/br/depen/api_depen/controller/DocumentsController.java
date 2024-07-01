@@ -24,7 +24,11 @@ public class DocumentsController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Documents>> findById(@PathVariable Long id) {
-        return ResponseEntity.status(HttpStatus.OK).body(documentService.findById(id));
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(documentService.findById(id));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Optional.empty());
+        }
     }
 
     @PostMapping

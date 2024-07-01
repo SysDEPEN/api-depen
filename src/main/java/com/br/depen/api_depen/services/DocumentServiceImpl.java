@@ -28,12 +28,15 @@ public class DocumentServiceImpl implements DocumentService{
 
     @Override
     public List<Documents> findAll() {
-        return null;
+            return documentRepository.findAll();
     }
 
     @Override
     public Optional<Documents> findById(Long id) {
-        return Optional.empty();
+        if(documentRepository.findById(id).isEmpty()){
+            throw new RuntimeException("document not found with id " + id);
+        }
+        return documentRepository.findById(id);
     }
 
     @Override
