@@ -14,6 +14,8 @@ import java.nio.file.Paths;
 @RequestMapping("api/v1/upload")
 public class FileUploadController {
 
+    private DocumentsController documentsController;
+
     @PostMapping
     public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) {
         if (file.isEmpty()) {
@@ -22,7 +24,7 @@ public class FileUploadController {
         try {
             // Process the file, for example, save it to a directory
             byte[] bytes = file.getBytes();
-            Path path = Paths.get("uploads/" + file.getOriginalFilename());
+            Path path = Paths.get("src/main/resources/static/public/" + file.getOriginalFilename());
             Files.write(path, bytes);
 
             return ResponseEntity.ok(file.getOriginalFilename());
