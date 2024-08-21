@@ -15,10 +15,10 @@ public class Protocols {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column()
     private LocalDateTime created_at;
 
-    @Column(nullable = false)
+    @Column()
     private LocalDateTime updated_at;
 
     @ManyToOne

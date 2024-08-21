@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/v1/user/subject2")
+@RequestMapping("api/v1/subject-inmost-visit")
 public class SubInMostVisitController {
 
     @Autowired

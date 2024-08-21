@@ -13,31 +13,31 @@ public class RequerimentoInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column()
     private String name_visited;
 
     @Column()
     private String cpf_rne;
 
-    @Column(nullable = false)
+    @Column()
     private String type_visitation;
 
-    @Column(nullable = false)
+    @Column()
     private String cellphone;
 
-    @Column(nullable = false)
+    @Column()
     private String state;
 
-    @Column(nullable = false)
+    @Column()
     private String city;
 
-    @Column(nullable = false)
+    @Column()
     private String district;
 
-    @Column(nullable = false)
+    @Column()
     private String street;
 
-    @Column(nullable = false)
+    @Column()
     private String number_house;
 
     @OneToOne

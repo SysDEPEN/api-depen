@@ -19,7 +19,7 @@ public class Login{
     private Long id;
 
     @Column(nullable = false, length = 256)
-    private String nome;
+    private String name;
 
     @Column(length = 14)
     private String document;

@@ -19,9 +19,9 @@ public class Subject {
     @JsonIgnoreProperties
     private SubjectInmostVisit id_inmost_visit;
 
-    @Column(nullable = false)
+    @Column()
     private LocalDateTime created_at;
 
-    @Column(nullable = false)
+    @Column()
     private LocalDateTime updated_at;
 }

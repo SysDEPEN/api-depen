@@ -25,9 +25,9 @@ public class SubjectInmostVisit {
 
     private Short time_pregnancy;
 
-    @Column(nullable = false)
+    @Column()
     private LocalDateTime created_at;
 
-    @Column(nullable = false)
+    @Column()
     private LocalDateTime updated_at;
 }
