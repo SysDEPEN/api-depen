@@ -21,7 +21,7 @@ public class AuthService {
     private UserRepository userRepository;
 
     public String login(LoginDto usuario) {
-        User user = userRepository.findByDocumento(usuario.getDocument());
+        User user = userRepository.findByDocument(usuario.getDocument());
         if (user == null) {
             throw new RuntimeException("Usuário não encontrado");
         }
