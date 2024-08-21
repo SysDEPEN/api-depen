@@ -25,7 +25,7 @@ public class AuthService {
         if (user == null) {
             throw new RuntimeException("Usuário não encontrado");
         }
-        if (!user.getSenha().equals(usuario.getPassword())) {
+        if (!user.getPassword().equals(usuario.getPassword())) {
             throw new RuntimeException("Usuario ou Senha inválida");
         }
         //return user.getId().toString();

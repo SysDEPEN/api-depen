@@ -24,13 +24,13 @@ public class FileUploadController {
         try {
             // Process the file, for example, save it to a directory
             byte[] bytes = file.getBytes();
-            Path path = Paths.get("src/main/resources/static/public/" + file.getOriginalFilename());
+            Path path = Paths.get("uploads/" + file.getOriginalFilename());
             Files.write(path, bytes);
 
             return ResponseEntity.ok(file.getOriginalFilename());
         } catch (IOException e) {
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload the file.");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload the file. " + e.getMessage() );
         }
     }
 

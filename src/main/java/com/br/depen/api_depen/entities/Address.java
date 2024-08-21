@@ -1,5 +1,6 @@
 package com.br.depen.api_depen.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -16,24 +17,24 @@ public class Address {
     private String cep;
 
     @Column(nullable = false, length = 256)
-    private String pais;
+    private String country;
 
     @Column(nullable = false, length = 2)
     private String UF;
 
     @Column(nullable = false, length = 256)
-    private String cidade;
+    private String city;
 
     @Column(nullable = false, length = 256)
-    private String bairro;
+    private String district;
 
     @Column(nullable = false, length = 256)
-    private String rua;
+    private String street;
 
     @Column(nullable = false, length = 256)
-    private String numero_casa;
+    private String number_house;
 
-    @ManyToOne
-    @JoinColumn(name = "id_user", nullable = false)
-    private User id_user;
+    @OneToOne
+    @JsonIgnoreProperties
+    private User user;
 }

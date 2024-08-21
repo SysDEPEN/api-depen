@@ -15,19 +15,15 @@ public class SubjectInmostVisit {
     private Long id;
 
     @Column(nullable = false)
-    private Boolean cumplice;
+    private Boolean accomplice;
 
     @Column(nullable = false)
-    private Boolean vitima;
+    private Boolean victim;
 
     @Column(nullable = false)
-    private Boolean gravida;
+    private Boolean pregnancy;
 
-    private Short tempo_gravidez;
-
-    @ManyToOne
-    @JoinColumn(name = "id_user", nullable = false)
-    private User id_user;
+    private Short time_pregnancy;
 
     @Column(nullable = false)
     private LocalDateTime created_at;

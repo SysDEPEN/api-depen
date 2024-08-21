@@ -22,10 +22,10 @@ public class Login{
     private String nome;
 
     @Column(length = 14)
-    private String documento;
+    private String document;
 
     @Column(nullable = false, length = 256)
-    private String senha;
+    private String password;
 
     @Column(nullable = false)
     private Short role;
@@ -36,7 +36,4 @@ public class Login{
     @Column(nullable = false)
     private LocalDateTime updated_at;
 
-    public String getUsername() {
-        return nome;
-    }
 }
