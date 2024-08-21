@@ -1,8 +1,10 @@
 package com.br.depen.api_depen.entities;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import jakarta.persistence.*;
 import lombok.Getter;
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -19,12 +21,16 @@ public class Login{
     private Long id;
 
     @Column(nullable = false, length = 256)
+    @NotBlank
     private String nome;
 
     @Column(length = 14)
+    @CPF
+    @NotBlank
     private String document;
 
     @Column(nullable = false, length = 256)
+    @NotBlank
     private String password;
 
     @Column(nullable = false)

@@ -2,7 +2,9 @@ package com.br.depen.api_depen.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -19,21 +21,25 @@ public class User {
     private Long id;
 
     @Column(nullable = false, length = 256)
+    @NotBlank
     private String name;
 
-    @Getter
     @Column(length = 14)
+    @CPF
     private String document;
 
     @Column(length = 254)
     private String gender;
 
+    @NotBlank
     private Date data_birth;
 
     @Column(length = 256)
+    @NotBlank
     private String email;
 
     @Column(nullable = false, length = 256)
+    @NotBlank
     private String password;
 
     @Column(nullable = false)
