@@ -2,6 +2,8 @@ package com.br.depen.api_depen.controller;
 
 import java.util.List;
 import java.util.Optional;
+
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +35,7 @@ public class ProtocolController {
     }
 
     @PostMapping
-    public ResponseEntity<Protocols> create(@RequestBody Protocols protocols) {
+    public ResponseEntity<Protocols> create(@RequestBody @Valid Protocols protocols) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(protocoloService.save(protocols));
         } catch (Exception e) {

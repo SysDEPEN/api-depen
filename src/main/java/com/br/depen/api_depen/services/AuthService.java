@@ -21,11 +21,11 @@ public class AuthService {
     private UserRepository userRepository;
 
     public String login(LoginDto usuario) {
-        User user = userRepository.findByDocumento(usuario.getDocument());
+        User user = userRepository.findByDocument(usuario.getDocument());
         if (user == null) {
             throw new RuntimeException("Usuário não encontrado");
         }
-        if (!user.getSenha().equals(usuario.getPassword())) {
+        if (!user.getPassword().equals(usuario.getPassword())) {
             throw new RuntimeException("Usuario ou Senha inválida");
         }
         //return user.getId().toString();

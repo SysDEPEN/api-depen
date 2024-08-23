@@ -2,6 +2,8 @@ package com.br.depen.api_depen.controller;
 
 import java.util.List;
 import java.util.Optional;
+
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +36,7 @@ public class SubjectController {
     }
 
     @PostMapping
-    public ResponseEntity<Subject> create(@RequestBody Subject subject) {
+    public ResponseEntity<Subject> create(@RequestBody @Valid Subject subject) {
         return ResponseEntity.status(HttpStatus.CREATED).body(subjectService.save(subject));
     }
 

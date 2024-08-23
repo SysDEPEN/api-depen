@@ -1,5 +1,6 @@
 package com.br.depen.api_depen.entities;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import jakarta.persistence.*;
 
@@ -14,20 +15,20 @@ public class SubjectInmostVisit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column(nullable = false)
-    private Boolean cumplice;
+    private Boolean accomplice;
 
+    @NotNull
     @Column(nullable = false)
-    private Boolean vitima;
+    private Boolean victim;
 
+    @NotNull
     @Column(nullable = false)
-    private Boolean gravida;
+    private Boolean pregnancy;
 
-    private Short tempo_gravidez;
-
-    @ManyToOne
-    @JoinColumn(name = "id_user", nullable = false)
-    private User id_user;
+    @NotNull
+    private Short time_pregnancy;
 
     @Column(nullable = false)
     private LocalDateTime created_at;

@@ -1,5 +1,7 @@
 package com.br.depen.api_depen.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -11,15 +13,12 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(length = 256)
     private String subject;
 
     @ManyToOne
-    @JoinColumn(name = "id_user", nullable = false)
-    private User id_user;
-
-    @ManyToOne
-    @JoinColumn(name = "id_inmost_visit", nullable = false)
+    @JsonIgnoreProperties
     private SubjectInmostVisit id_inmost_visit;
 
     @Column(nullable = false)

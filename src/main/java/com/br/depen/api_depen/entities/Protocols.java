@@ -1,5 +1,7 @@
 package com.br.depen.api_depen.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import jakarta.persistence.*;
 
@@ -8,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "protocolos")
+@Table(name = "tb_protocols")
 public class Protocols {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,15 +22,23 @@ public class Protocols {
     @Column(nullable = false)
     private LocalDateTime updated_at;
 
-    @Column (nullable = false)
-    private Long id_user;
+    @ManyToOne
+    @JsonIgnoreProperties
+    private User user;
 
-    @Column (nullable = false)
-    private int id_requerimento_info;
+    @OneToOne
+    @JsonIgnoreProperties
+    private RequerimentoInfo req_info;
 
-    @Column (nullable = false)
-    private int id_documento;
+    @OneToOne
+    @JsonIgnoreProperties
+    private Documents doc;
 
+    @ManyToOne
+    @JsonIgnoreProperties
+    private Admin admin;
+
+    @NotNull
     @Column (nullable = false)
     private Long status;
 }

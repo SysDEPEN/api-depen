@@ -45,12 +45,12 @@ public class UserServiceImpl implements UserService{
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            user.setNome(updatedUser.getNome() != null ? updatedUser.getNome() : user.getNome());
-            user.setSenha(updatedUser.getSenha() != null ? updatedUser.getSenha() : user.getSenha());
+            user.setName(updatedUser.getName() != null ? updatedUser.getName() : user.getName());
+            user.setPassword(updatedUser.getPassword() != null ? updatedUser.getPassword() : user.getPassword());
             user.setRole(updatedUser.getRole() != null ? updatedUser.getRole() : user.getRole());
-            user.setDocumento(updatedUser.getDocumento() != null ? updatedUser.getDocumento() : user.getDocumento());
+            user.setDocument(updatedUser.getDocument() != null ? updatedUser.getDocument() : user.getDocument());
             user.setEmail(updatedUser.getEmail() != null ? updatedUser.getEmail() : user.getEmail());
-            user.setSexo(updatedUser.getSexo() != null ? updatedUser.getSexo() : user.getSexo());
+            user.setGender(updatedUser.getGender() != null ? updatedUser.getGender() : user.getGender());
             user.setUpdated_at(LocalDateTime.now());
 
             return userRepository.save(user);

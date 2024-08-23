@@ -52,7 +52,7 @@ public class JwtUtils {
         Map<String, Object> claims = new HashMap<>();
         claims.put("id", user.getId());
         claims.put("role", user.getRole());
-        return doGenerateToken(claims, user.getNome(), type);
+        return doGenerateToken(claims, user.getName(), type);
     }
 
     private String doGenerateToken(Map<String, Object> claims, String username, String type) {

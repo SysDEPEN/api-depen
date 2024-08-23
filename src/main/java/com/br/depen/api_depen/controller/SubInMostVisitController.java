@@ -2,6 +2,7 @@ package com.br.depen.api_depen.controller;
 
 import com.br.depen.api_depen.entities.SubjectInmostVisit;
 import com.br.depen.api_depen.services.SubInMostVisitService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,7 @@ public class SubInMostVisitController {
     }
 
     @PostMapping
-    public ResponseEntity<SubjectInmostVisit> create(@RequestBody SubjectInmostVisit subjectInMostVisit) {
+    public ResponseEntity<SubjectInmostVisit> create(@RequestBody @Valid SubjectInmostVisit subjectInMostVisit) {
         return ResponseEntity.status(HttpStatus.CREATED).body(subInMostVisitService.save(subjectInMostVisit));
     }
 

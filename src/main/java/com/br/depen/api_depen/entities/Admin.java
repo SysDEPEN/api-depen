@@ -1,10 +1,14 @@
 package com.br.depen.api_depen.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,16 +19,21 @@ public class Admin {
     private Long id;
 
     @Column(nullable = false, length = 256)
-    private String nome;
+    @NotBlank
+    private String name;
 
     @Column(length = 14)
-    private String documento;
+    @CPF
+    @NotBlank
+    private String document;
 
     @Column(length = 256)
+    @NotBlank
     private String email;
 
     @Column(nullable = false, length = 256)
-    private String senha;
+    @NotBlank
+    private String password;
 
     @Column(nullable = false)
     private Short role;
@@ -34,4 +43,8 @@ public class Admin {
 
     @Column(nullable = false)
     private LocalDateTime updated_at;
+
+    @OneToMany
+    @JsonIgnoreProperties
+    private List<Protocols> protocols;
 }

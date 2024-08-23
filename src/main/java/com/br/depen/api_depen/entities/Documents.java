@@ -1,5 +1,6 @@
 package com.br.depen.api_depen.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -19,7 +20,7 @@ public class Documents {
     private Long id;
 
     @Column(length = 256)
-    private String documentos;
+    private String document;
 
     @Column(nullable = false)
     private LocalDateTime created_at;
@@ -27,6 +28,7 @@ public class Documents {
     @Column(nullable = false)
     private LocalDateTime updated_at;
 
-    @Column(nullable = false)
-    private int id_user;
+    @OneToOne
+    @JsonIgnoreProperties
+    private User user;
 }

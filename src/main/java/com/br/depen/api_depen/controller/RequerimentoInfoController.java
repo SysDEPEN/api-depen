@@ -2,6 +2,7 @@ package com.br.depen.api_depen.controller;
 
 import com.br.depen.api_depen.entities.RequerimentoInfo;
 import com.br.depen.api_depen.services.RequerimentoInfoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +37,7 @@ public class RequerimentoInfoController {
     }
 
     @PostMapping
-    public ResponseEntity<RequerimentoInfo> create(@RequestBody RequerimentoInfo requerimentoInfo) {
+    public ResponseEntity<RequerimentoInfo> create(@RequestBody @Valid RequerimentoInfo requerimentoInfo) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(requerimentoInfoService.save(requerimentoInfo));
         } catch (Exception e) {
