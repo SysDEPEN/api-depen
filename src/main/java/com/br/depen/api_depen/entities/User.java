@@ -2,6 +2,7 @@ package com.br.depen.api_depen.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
@@ -25,13 +26,13 @@ public class User {
     private String name;
 
     @Column(length = 14)
-    @CPF
+    @NotBlank
     private String document;
 
     @Column(length = 254)
     private String gender;
 
-    @NotBlank
+    @FutureOrPresent(message = "não deixe em branco")
     private Date data_birth;
 
     @Column(length = 256)

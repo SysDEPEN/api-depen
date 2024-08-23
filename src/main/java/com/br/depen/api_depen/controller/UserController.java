@@ -2,6 +2,7 @@ package com.br.depen.api_depen.controller;
 
 import com.br.depen.api_depen.entities.User;
 import com.br.depen.api_depen.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +38,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> create(@RequestBody User user) {
+    public ResponseEntity<User> create(@RequestBody @Valid User user) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
         }

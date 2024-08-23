@@ -26,7 +26,7 @@ public class Address {
     @NotBlank
     private String UF;
 
-    @Column(nullable = false, length = 256)
+    @Column(nullable = false , length = 256)
     @NotBlank
     private String city;
 

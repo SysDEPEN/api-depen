@@ -1,6 +1,7 @@
 package com.br.depen.api_depen.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import jakarta.persistence.*;
 
@@ -37,6 +38,7 @@ public class Protocols {
     @JsonIgnoreProperties
     private Admin admin;
 
+    @NotNull
     @Column (nullable = false)
     private Long status;
 }

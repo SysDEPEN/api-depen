@@ -1,5 +1,6 @@
 package com.br.depen.api_depen.entities;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import jakarta.persistence.*;
 
@@ -14,15 +15,19 @@ public class SubjectInmostVisit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column(nullable = false)
     private Boolean accomplice;
 
+    @NotNull
     @Column(nullable = false)
     private Boolean victim;
 
+    @NotNull
     @Column(nullable = false)
     private Boolean pregnancy;
 
+    @NotNull
     private Short time_pregnancy;
 
     @Column(nullable = false)

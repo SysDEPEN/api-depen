@@ -15,6 +15,7 @@ public class AdressServiceImpl implements AddressService{
 
     @Override
     public Address save(Address address) {
+        System.out.println(address);
         return addressRepository.save(address);
     }
 

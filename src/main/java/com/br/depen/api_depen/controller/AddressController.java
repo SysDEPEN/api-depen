@@ -1,6 +1,7 @@
 package com.br.depen.api_depen.controller;
 
 import com.br.depen.api_depen.entities.Address;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,8 @@ public class AddressController {
     }
 
     @PostMapping
-    public ResponseEntity<Address> create(@RequestBody Address address) {
+    public ResponseEntity<Address> create(@RequestBody @Valid Address address) {
+        System.out.println(address + "asdasdasdasdddddd");
         return ResponseEntity.status(HttpStatus.CREATED).body(addressService.save(address));
     }
 
