@@ -21,4 +21,5 @@
       "updated_at": "2024-06-24T22:32:00"
   }
 
-- Verify your route path.
+- Verify your route path in controller.
+- Congratulations, you run the better code!! 😁😘
