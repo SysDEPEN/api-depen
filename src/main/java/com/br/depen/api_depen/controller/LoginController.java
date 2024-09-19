@@ -1,5 +1,6 @@
 package com.br.depen.api_depen.controller;
 
+import com.br.depen.api_depen.DTOs.LoginDto;
 import com.br.depen.api_depen.entities.Login;
 import com.br.depen.api_depen.services.AuthService;
 import com.br.depen.api_depen.services.LoginService;

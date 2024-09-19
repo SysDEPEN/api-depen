@@ -2,6 +2,7 @@ package com.br.depen.api_depen.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -36,7 +37,7 @@ public class User {
     private Date data_birth;
 
     @Column(length = 256)
-    @NotBlank
+    @Email
     private String email;
 
     @Column(nullable = false, length = 256)

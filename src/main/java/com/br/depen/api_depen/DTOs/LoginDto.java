@@ -1,4 +1,4 @@
-package com.br.depen.api_depen.controller;
+package com.br.depen.api_depen.DTOs;
 
 public class LoginDto {
     private String document;
