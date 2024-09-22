@@ -21,7 +21,8 @@ public class UserServiceImpl implements UserService{
             return userRepository.save(user);
         }
         catch (Exception e){
-            throw new RuntimeException("User not saved");
+//            throw new RuntimeException("User not saved, because: " + e.getMessage());
+            throw new IllegalArgumentException();
         }
     }
 

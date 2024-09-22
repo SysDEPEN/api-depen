@@ -28,7 +28,6 @@ public class LoginController {
 
     @PostMapping("/login")
     public ResponseEntity<String> getJwtByLogin(@RequestBody LoginDto login){
-
         try {
             var token = authService.login(login);
             Map<String, String> response = new HashMap<>();
