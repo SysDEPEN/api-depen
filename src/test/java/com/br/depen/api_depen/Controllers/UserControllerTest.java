@@ -3,6 +3,7 @@ package com.br.depen.api_depen.Controllers;
 import com.br.depen.api_depen.controller.UserController;
 import com.br.depen.api_depen.entities.User;
 import com.br.depen.api_depen.repository.UserRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
