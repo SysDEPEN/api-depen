@@ -4,6 +4,13 @@ public class LoginDto {
     private String document;
     private String password;
 
+    // Construtor com parâmetros
+    public LoginDto(String document, String password) {
+        this.document = document;
+        this.password = password;
+    }
+
+    // Getters
     public String getDocument() {
         return document;
     }

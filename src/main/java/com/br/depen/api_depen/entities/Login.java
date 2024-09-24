@@ -3,19 +3,13 @@ package com.br.depen.api_depen.entities;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import jakarta.persistence.*;
-import lombok.Getter;
 import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-
 import java.time.LocalDateTime;
-import java.util.Collection;
 
 @Data
 @Entity
 @Table(name = "tb_login")
-public class Login{
+public class Login {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -42,4 +36,15 @@ public class Login{
     @Column(nullable = false)
     private LocalDateTime updated_at;
 
+    // Construtores, getters e setters gerados pelo Lombok através da anotação @Data
+
+    // Método setId para ajustar o ID
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    // Método setNome para alterar o nome no teste
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }
