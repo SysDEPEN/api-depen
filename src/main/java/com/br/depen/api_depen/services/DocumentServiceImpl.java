@@ -33,10 +33,11 @@ public class DocumentServiceImpl implements DocumentService{
 
     @Override
     public Optional<Documents> findById(Long id) {
-        if(documentRepository.findById(id).isEmpty()){
+        Optional<Documents> document = documentRepository.findById(id);
+        if (document.isEmpty()) {
             throw new RuntimeException("document not found with id " + id);
         }
-        return documentRepository.findById(id);
+        return document;
     }
 
     @Override
