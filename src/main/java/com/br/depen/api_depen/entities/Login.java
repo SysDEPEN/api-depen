@@ -1,6 +1,7 @@
 package com.br.depen.api_depen.entities;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -25,8 +26,7 @@ public class Login{
     private String nome;
 
     @Column(length = 14)
-    @CPF
-    @NotBlank
+    @Pattern(regexp = "(\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2})|(\\d{11})|(\\d{2}\\.\\d{3}\\.\\d{3}-\\d{1})|(\\d{9})", message = "Documento inválido. Deve ser CPF ou RNE.")
     private String document;
 
     @Column(nullable = false, length = 256)

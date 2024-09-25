@@ -4,6 +4,7 @@ import com.br.depen.api_depen.controller.AdminController;
 import com.br.depen.api_depen.entities.Admin;
 import com.br.depen.api_depen.repository.AdminRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -48,6 +49,7 @@ public class AdminControllerTest {
     }
 
     @Test
+    @DisplayName("TESTE")
     void saveAdminError() {
         Admin adminFailed = new Admin();
         adminFailed.setEmail("xxzcxdasd");

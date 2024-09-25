@@ -3,6 +3,7 @@ package com.br.depen.api_depen.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.hibernate.validator.constraints.br.CPF;
@@ -28,7 +29,7 @@ public class Admin {
     private String document;
 
     @Column(length = 256)
-    @NotBlank
+    @Email
     private String email;
 
     @Column(nullable = false, length = 256)

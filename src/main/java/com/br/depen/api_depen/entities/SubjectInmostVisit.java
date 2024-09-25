@@ -35,4 +35,8 @@ public class SubjectInmostVisit {
 
     @Column(nullable = false)
     private LocalDateTime updated_at;
+
+    public void assertThrows(Class<Exception> exceptionClass, Object o) {
+
+    }
 }
