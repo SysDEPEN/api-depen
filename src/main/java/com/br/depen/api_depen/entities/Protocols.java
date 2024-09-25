@@ -5,12 +5,12 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import jakarta.persistence.*;
 
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
 @Table(name = "tb_protocols")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Protocols {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,22 +23,19 @@ public class Protocols {
     private LocalDateTime updated_at;
 
     @ManyToOne
-    @JsonIgnoreProperties
     private User user;
 
     @OneToOne
-    @JsonIgnoreProperties
     private RequerimentoInfo req_info;
 
     @OneToOne
-    @JsonIgnoreProperties
     private Documents doc;
 
     @ManyToOne
-    @JsonIgnoreProperties
     private Admin admin;
 
     @NotNull
-    @Column (nullable = false)
+    @Column(nullable = false)
     private Long status;
+
 }
