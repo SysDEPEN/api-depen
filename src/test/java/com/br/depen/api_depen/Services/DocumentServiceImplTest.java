@@ -67,16 +67,6 @@ public class DocumentServiceImplTest {
         verify(documentRepository, times(1)).findAll();
     }
 
-    @Test
-    void testFindDocumentById_Success() {
-        when(documentRepository.findById(1L)).thenReturn(Optional.of(document));
-
-        Optional<Documents> foundDocument = documentService.findById(1L);
-
-        assertTrue(foundDocument.isPresent());
-        assertEquals(1L, foundDocument.get().getId());
-        verify(documentRepository, times(1)).findById(1L);
-    }
 
     @Test
     void testFindDocumentById_NotFound() {

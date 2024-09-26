@@ -33,7 +33,7 @@ public class AdminControllerTest {
         Short role = 2;
         admin.setId(1L);
         admin.setName("Teste");
-        admin.setDocument("123456789123");
+        admin.setDocument("121.893.509-05");
         admin.setEmail("farao@gmail.com");
         admin.setPassword("123456");
         admin.setRole(role);
