@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService{
         }
         catch (Exception e){
 //            throw new RuntimeException("User not saved, because: " + e.getMessage());
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("User not saved because: " + e.getMessage());
         }
     }
 

@@ -3,7 +3,9 @@ package com.br.depen.api_depen.Controllers;
 import com.br.depen.api_depen.controller.UserController;
 import com.br.depen.api_depen.entities.User;
 import com.br.depen.api_depen.repository.UserRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,8 +28,6 @@ public class UserControllerTest {
 
     User user = new User();
 
-
-
     @BeforeEach
     void setup() {
         Short role = 1;
@@ -49,6 +49,7 @@ public class UserControllerTest {
     }
 
     @Test
+    @DisplayName("USUÁRIO # RESPONSE: 'Email Inválido' # EXCEPTION")
     void saveUserError() {
         User userFailed = new User();
         userFailed.setEmail("asdasd");
