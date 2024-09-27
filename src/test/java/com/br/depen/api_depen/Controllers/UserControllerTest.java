@@ -78,7 +78,7 @@ public class UserControllerTest {
 
     @Test
     @DisplayName("NADA ENCONTRADO NO USER BAD REQUEST")
-    void notFoundCandidato() {
+    void notFoundUser() {
         User userFailed = null;
 
         ResponseEntity<User> retorno = userController.create(userFailed);
