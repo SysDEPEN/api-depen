@@ -1,0 +1,170 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AdminController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.br.depen.api_depen.controller</a>
+</div>
+
+<h1>Coverage Summary for Class: AdminController (com.br.depen.api_depen.controller)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AdminController</td>
+<td class="coverageStat">
+  <span class="percent">
+    33.3%
+  </span>
+  <span class="absValue">
+    (2/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    22.2%
+  </span>
+  <span class="absValue">
+    (2/9)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AdminController$$SpringCGLIB$$0</td>
+  </tr>
+  <tr>
+    <td class="name">AdminController$$SpringCGLIB$$1</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    33.3%
+  </span>
+  <span class="absValue">
+    (2/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    22.2%
+  </span>
+  <span class="absValue">
+    (2/9)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.br.depen.api_depen.controller;
+&nbsp;
+&nbsp;import com.br.depen.api_depen.entities.Admin;
+&nbsp;import com.br.depen.api_depen.services.AdminService;
+&nbsp;import jakarta.validation.Valid;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.http.HttpStatus;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.validation.annotation.Validated;
+&nbsp;import org.springframework.web.bind.annotation.*;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;@RestController
+&nbsp;@RequestMapping(&quot;api/v1/admins&quot;)
+&nbsp;@CrossOrigin(&quot;*&quot;)
+&nbsp;@Validated
+<b class="fc">&nbsp;public class AdminController {</b>
+&nbsp;    @Autowired
+&nbsp;    private AdminService adminService;
+&nbsp;
+&nbsp;
+&nbsp;    @GetMapping
+&nbsp;    public ResponseEntity&lt;List&lt;Admin&gt;&gt; findAll() {
+<b class="nc">&nbsp;        return ResponseEntity.status(HttpStatus.OK).body(adminService.findAll());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping (&quot;/{id}&quot;)
+&nbsp;    public ResponseEntity&lt;Optional&lt;Admin&gt;&gt; findByid(@PathVariable Long id) {
+<b class="nc">&nbsp;        return ResponseEntity.status(HttpStatus.OK).body(adminService.findById(id));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PostMapping
+&nbsp;    public ResponseEntity&lt;Admin&gt; create(@RequestBody @Valid Admin admin) {
+&nbsp;        try {
+<b class="fc">&nbsp;            return ResponseEntity.status(HttpStatus.CREATED).body(adminService.save(admin));</b>
+<b class="nc">&nbsp;        } catch (Exception e) {</b>
+<b class="nc">&nbsp;            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @PutMapping
+&nbsp;    public ResponseEntity&lt;Admin&gt; update(@RequestBody Admin admin) {
+<b class="nc">&nbsp;        return ResponseEntity.status(HttpStatus.OK).body(adminService.update(admin));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @DeleteMapping(&quot;/{id}&quot;)
+&nbsp;    public ResponseEntity&lt;?&gt; delete(@PathVariable Long id) {
+<b class="nc">&nbsp;        adminService.deleteById(id);</b>
+<b class="nc">&nbsp;        return ResponseEntity.status(HttpStatus.OK).build();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-09-26 20:05</div>
+</div>
+</body>
+</html>

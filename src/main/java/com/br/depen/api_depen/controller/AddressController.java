@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.br.depen.api_depen.services.AddressService;
 
@@ -13,6 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/address")
+@Validated
 public class AddressController {
 
     @Autowired
@@ -30,8 +32,15 @@ public class AddressController {
 
     @PostMapping
     public ResponseEntity<Address> create(@RequestBody @Valid Address address) {
-        System.out.println(address + "asdasdasdasdddddd");
-        return ResponseEntity.status(HttpStatus.CREATED).body(addressService.save(address));
+        try{
+            if(address == null) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
+            return ResponseEntity.status(HttpStatus.CREATED).body(addressService.save(address));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+
     }
 
     @PutMapping

@@ -31,4 +31,8 @@ public class Documents {
     @OneToOne
     @JsonIgnoreProperties
     private User user;
+
+    public void setName(String testDocument) {
+
+    }
 }
