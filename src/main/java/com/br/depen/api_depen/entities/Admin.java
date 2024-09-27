@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -23,8 +24,10 @@ public class Admin {
     private String name;
 
     @Column(length = 14)
-    @CPF
-    @NotBlank
+    @Pattern(
+            regexp = "([0-9]{3}\\.[0-9]{3}\\.[0-9]{3}\\-[0-9]{2}|[0-9]{11})|([a-zA-Z0-9]{1,12})",
+            message = "Documento inválido: forneça um CPF válido (com ou sem pontuação) ou um RNE válido"
+    )
     private String document;
 
     @Column(length = 256)

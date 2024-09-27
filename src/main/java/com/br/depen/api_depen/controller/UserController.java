@@ -39,9 +39,12 @@ public class UserController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<User> create(@RequestBody @Valid User user) {
         try {
+            if(user == null){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
             return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
         }
         catch (Exception e) {

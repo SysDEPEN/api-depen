@@ -34,9 +34,12 @@ public class AdminController {
     @PostMapping
     public ResponseEntity<Admin> create(@RequestBody @Valid Admin admin) {
         try {
+            if(admin == null) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
             return ResponseEntity.status(HttpStatus.CREATED).body(adminService.save(admin));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
 

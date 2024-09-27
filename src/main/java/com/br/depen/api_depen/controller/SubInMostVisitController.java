@@ -32,6 +32,9 @@ public class SubInMostVisitController {
     @PostMapping
     public ResponseEntity<SubjectInmostVisit> create(@RequestBody @Valid SubjectInmostVisit subjectInMostVisit) {
         try{
+            if(subjectInMostVisit == null) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
             return ResponseEntity.status(HttpStatus.CREATED).body(subInMostVisitService.save(subjectInMostVisit));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();

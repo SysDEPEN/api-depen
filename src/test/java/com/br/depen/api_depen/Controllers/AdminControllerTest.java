@@ -2,6 +2,7 @@ package com.br.depen.api_depen.Controllers;
 
 import com.br.depen.api_depen.controller.AdminController;
 import com.br.depen.api_depen.entities.Admin;
+import com.br.depen.api_depen.entities.User;
 import com.br.depen.api_depen.repository.AdminRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -49,7 +50,7 @@ public class AdminControllerTest {
     }
 
     @Test
-    @DisplayName("TESTE")
+    @DisplayName("ADMIN ESTÁ COM EMAIL INVÁLIDO")
     void saveAdminError() {
         Admin adminFailed = new Admin();
         adminFailed.setEmail("xxzcxdasd");
@@ -57,5 +58,25 @@ public class AdminControllerTest {
         assertThrows(Exception.class, ()-> {
             ResponseEntity<Admin> message = adminController.create(adminFailed);
         });
+    }
+
+    @Test
+    @DisplayName("ADMIN ESTÁ COM DOCUMENTO INVÁLIDO")
+    void saveAdminErrorDocument() {
+        Admin adminFailed = new Admin();
+        adminFailed.setDocument("xxzcxdasd");
+
+        assertThrows(Exception.class, ()-> {
+            ResponseEntity<Admin> message = adminController.create(adminFailed);
+        });
+    }
+
+    @Test
+    @DisplayName("NADA ENCONTRADO NO ADMIN BAD REQUEST")
+    void notFoundCandidato() {
+        Admin adminFailed = null;
+
+        ResponseEntity<Admin> retorno = adminController.create(adminFailed);
+        assertEquals(HttpStatus.BAD_REQUEST, retorno.getStatusCode());
     }
 }
