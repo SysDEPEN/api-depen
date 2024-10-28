@@ -2,10 +2,7 @@ package com.br.depen.api_depen.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.FutureOrPresent;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -37,7 +34,7 @@ public class User {
     @Column(length = 254)
     private String gender;
 
-    @FutureOrPresent(message = "não deixe em branco")
+    @PastOrPresent(message = "não deixe em branco")
     private Date data_birth;
 
     @Column(length = 256)
