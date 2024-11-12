@@ -36,7 +36,7 @@ public class RequerimentoInfoController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<RequerimentoInfo> create(@RequestBody @Valid RequerimentoInfo requerimentoInfo) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(requerimentoInfoService.save(requerimentoInfo));
